@@ -1,35 +1,104 @@
-import logo from "./logo.svg";
+import React, { useState } from "react";
 import "./App.css";
-import { hasPointerEvents } from "@testing-library/user-event/dist/utils";
-const profile = {
-  name: "Krisztian",
-  paragraph: "Ird be ide az emailod:",
-  img: "https://scontent.fbeg4-1.fna.fbcdn.net/v/t39.30808-6/312903381_5615588235174896_3837931749842999114_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=NVcqR-AypWwAX_d3-cX&_nc_ht=scontent.fbeg4-1.fna&oh=00_AfBuA-eZyjofZ9nthz9zN7I9Y2VJat6UGO90HLcfv1Jx8A&oe=63E74475",
-};
-const profile2 = {
-  name: "Timi",
-  paragraph: "Hia,Timi vagyok es kerek a popom!",
-  img: "https://scontent.fbeg4-1.fna.fbcdn.net/v/t39.30808-6/278181807_2128158277352067_5773093625486859555_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_ohc=-Il9P7LWJ40AX8raC1L&_nc_ht=scontent.fbeg4-1.fna&oh=00_AfDke_fQ8ywh6NeUJEMYMagVv3QiANBzKs29i8ZqlgI6xA&oe=63E82995",
-};
-const database = [profile, profile2];
-const { name, paragraph, img } = database[0];
 
+<link rel="stylesheet" href="App.css" />;
+let profile = {
+  name: "Moscow",
+  paragraph: "Moscow is a fucking strong MM",
+  img: "https://th.bing.com/th/id/R.98a26d6ac1e04f355f51fb927dc55d63?rik=7Pbbzc%2fjf%2fPYFQ&pid=ImgRaw&r=0",
+  liked: false,
+};
+let profile2 = {
+  name: "Ankela",
+  paragraph: "Ankela is a healer support hero",
+  img: "https://th.bing.com/th/id/R.1fb3b112712fd4de13ed31b388032dd7?rik=HvgIX7GLHR%2f%2fJA&pid=ImgRaw&r=0",
+  liked: false,
+};
+let profile3 = {
+  name: "YSS",
+  paragraph: "YSS is one of the best junglers but saddly he is nerfed",
+  img: "https://i.ytimg.com/vi/5bMBa31wWpM/hqdefault.jpg",
+  liked: false,
+};
+const database = [profile, profile2, profile3];
 function App() {
+  const initialState = 0;
+
+  const [state, setState] = useState(initialState);
+  const likeInitial = "like";
+
+  const [like, setLike] = useState(likeInitial);
+  const { name, paragraph, img } = database[state];
   const style = {
     width: "200px",
     height: "auto",
+    color: "white",
+    ShadowRoot: "black",
+    margin: "20px",
+    pending: "400px",
+    animation: "spin infinite 20s linear",
   };
   return (
-    <div className="App">
-      <h1>{name}</h1>
+    <center>
+      <div
+        class="main"
+        className="App"
+        style={{
+          backgroundImage: `url("ankela.jpg")`,
+          width: "auto",
+          height: "800px",
+        }}
+      >
+        <div class="main">
+          <div>
+            <h1 style={style}>{name}</h1>
 
-      <h2>Egy kep rolam :</h2>
-      <img style={style} src={img}></img>
-      <p>{paragraph}</p>
-      <input type={"email"}></input>
-      <br />
-      <button>kuldes</button>
-    </div>
+            <h2 class="h2">One pic from hero:</h2>
+            <img style={style} src={img}></img>
+            <center class="Like">
+              <button
+                onClick={() => {
+                  if (database[state].liked === false) {
+                    setLike("dislike");
+                    database[state].liked = true;
+                    console.log(
+                      database[state].name,
+                      "liked status :",
+                      database[state].liked
+                    );
+                  } else if (database[state].liked === true) {
+                    setLike("like");
+                    database[state].liked = false;
+                    console.log(
+                      database[state].name,
+                      "liked status :",
+                      database[state].liked
+                    );
+                  }
+                }}
+              >
+                {like}
+              </button>
+            </center>
+            <p style={style}>{paragraph}</p>
+
+            <button
+              onClick={() => {
+                if (state !== database.length - 1) {
+                  setState(state + 1);
+                  like = database[state].liked;
+                }
+                if (state === database.length - 1) setState(0);
+              }}
+            >
+              Next
+            </button>
+
+            <br />
+          </div>
+        </div>
+      </div>
+    </center>
   );
 }
 

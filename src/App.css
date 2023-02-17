@@ -1,0 +1,32 @@
+.h1 {
+  color: blue;
+}
+.center {
+  background-image: url("hatter.png");
+}
+.img {
+  motion-rotation: auto;
+  width: 300px;
+  height: auto;
+}
+.main {
+  display: flex;
+  margin-left: 50px;
+  padding: auto;
+}
+.h2 {
+  color: white;
+}
+.img1 {
+  width: 400px;
+  height: auto;
+  color: white;
+  margin: 20px;
+  animation-delay: 50s;
+  border-radius: 50%;
+}
+.like {
+  width: 40px;
+  height: auto;
+  color: blue;
+}
