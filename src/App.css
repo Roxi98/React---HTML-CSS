@@ -1,14 +1,7 @@
-.h1 {
-  color: blue;
-}
 .center {
   background-image: url("hatter.png");
 }
-.img {
-  motion-rotation: auto;
-  width: 300px;
-  height: auto;
-}
+
 .main {
   display: flex;
   margin-left: 50px;
@@ -18,13 +11,35 @@
   color: white;
 }
 .img1 {
+  display: block;
+
   width: 400px;
   height: auto;
   color: white;
-  margin: 20px;
-  animation-delay: 50s;
+  margin: 50px;
   border-radius: 50%;
+  /* padding: 100px;
+  
+  -webkit-animation: spin 20s linear infinite;
+  -moz-animation: spin 20s linear infinite;
+  animation: spin 20s linear infinite;*/
 }
+/*
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}*/
 .like {
   width: 40px;
   height: auto;
